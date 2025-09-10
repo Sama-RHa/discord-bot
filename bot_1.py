@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 
 # La variable intents almacena los privilegios del bot
 intents = discord.Intents.default()
@@ -48,5 +49,10 @@ async def on_message(message):
         await message.channel.send(gen_emodji())
     elif message.content.startswith('$flip'):
         await message.channel.send(flip_coin())
+    elif message.content.startswith('$meme'):
+        img_name = random.choice(os.listdir('images'))
+        with open(f'images/{img_name}', 'rb') as f:
+            picture = discord.File(f)
+        await message.channel.send(file=picture)
 
 client.run("Token goes here")
