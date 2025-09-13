@@ -1,0 +1,79 @@
+import discord
+
+# La variable intents almacena los privilegios del bot
+intents = discord.Intents.default()
+# Activar el privilegio de lectura de mensajes
+intents.message_content = True
+# Crear un bot en la variable cliente y transferirle los privilegios
+client = discord.Client(intents=intents)
+
+#recycle
+def options():
+    return "Puedes reciclar los siguientes materiales:\n1. Papel y cartón\n2. Plástico\n3. Vidrio\n4. Metales\n5. Residuos orgánicos\n6. Electrónicos\n7. Ropa y textiles\n8. Baterías y pilas\n9. Aceite usado\n10. Neumáticos.\nPor favor, escriba el nombre de alguno de estos (iniciado por este simbolo: $. sin el numero, tilde, espacio, mayuscula, ni la letra ñ. Por ejemplo: '$papelycarton'.) para obtener instrucciones sobre cómo reciclarlo.\nEscribe $options para ver esta lista nuevamente."
+
+    #paper y carton
+def paper_carton():
+    return "Para reciclar papel y cartón, sigue estos pasos:\n1. Separa el papel y cartón de otros materiales reciclables.\n2. Asegúrate de que el papel y cartón estén limpios y secos.\n3. Retira cualquier cinta adhesiva, grapas o elementos no reciclables.\n4. Dobla o aplasta las cajas de cartón para ahorrar espacio.\n5. Coloca el papel y cartón en el contenedor de reciclaje correspondiente.\n6. Evita reciclar papel o cartón con residuos de comida o grasa, ya que puede contaminar el proceso de reciclaje."
+
+    #plastic
+def plastic():
+    return "Para poder reciclar el plástico, debes seguir estos pasos:\n1. Limpia los envases de plástico para eliminar residuos de comida o líquidos.\n2. Separa los diferentes tipos de plástico (PET, HDPE, PVC, etc.) si es posible.\n3. Coloca los envases limpios y secos en el contenedor de reciclaje correspondiente.\n4. Evita reciclar plásticos que no sean reciclables, como bolsas de plástico delgadas o envoltorios.\n5. Consulta las normas locales de reciclaje para asegurarte de que estás reciclando correctamente."
+
+    #vidrio
+def glass():
+    return "Para reciclar vidrio, sigue estos pasos:\n1. Enjuaga los envases de vidrio para eliminar residuos de comida o líquidos.\n2. Retira las tapas, corchos o cualquier otro material no reciclable.\n3. Separa el vidrio por colores (transparente, verde, marrón) si es posible.\n4. Coloca los envases de vidrio limpios y secos en el contenedor de reciclaje correspondiente.\n5. Evita reciclar vidrios rotos o cerámicas, ya que pueden contaminar el proceso de reciclaje."
+
+    #metales
+def metals():
+    return "Para reciclar metales, sigue estos pasos:\n1. Limpia los envases de metal para eliminar residuos de comida o líquidos.\n2. Retira las etiquetas o cualquier otro material no reciclable si es posible.\n3. Aplasta las latas para ahorrar espacio en el contenedor de reciclaje.\n4. Coloca los envases de metal limpios y secos en el contenedor de reciclaje correspondiente.\n5. Evita reciclar metales que no sean reciclables, como utensilios de cocina o electrodomésticos pequeños."
+
+    #residuos organicos
+def organic_waste():
+    return "Para reciclar residuos orgánicos, sigue estos pasos:\n1. Separa los residuos orgánicos de otros tipos de basura.\n2. Coloca los residuos orgánicos en un contenedor específico para compostaje o reciclaje orgánico.\n3. Evita incluir materiales no orgánicos, como plásticos o metales, en el contenedor de residuos orgánicos.\n4. Si tienes un jardín, considera hacer compostaje casero con los residuos orgánicos para crear abono natural."
+
+    #electronicos
+def electronics():
+    return "Para reciclar electrónicos, sigue estos pasos:\n1. No tires los dispositivos electrónicos a la basura común.\n2. Busca puntos de recogida o centros de reciclaje especializados en electrónicos en tu área.\n3. Asegúrate de borrar cualquier información personal de los dispositivos antes de reciclarlos.\n4. Si el dispositivo aún funciona, considera donarlo o venderlo para que alguien más pueda usarlo.\n5. Consulta las normas locales de reciclaje para asegurarte de que estás reciclando correctamente."
+
+    #ropa y textiles
+def clothes_textiles():
+    return "Para reciclar ropa y textiles, sigue estos pasos:\n1. Separa la ropa y textiles que ya no usas o que están en mal estado.\n2. Asegúrate de que la ropa esté limpia y seca antes de reciclarla.\n3. Busca puntos de recogida o centros de reciclaje especializados en ropa y textiles en tu área.\n4. Considera donar la ropa que aún está en buen estado a organizaciones benéficas o tiendas de segunda mano.\n5. Evita tirar la ropa a la basura común, ya que puede terminar en vertederos."
+
+    #baterias y pilas
+def batteries():
+    return "Para reciclar baterías y pilas, sigue estos pasos:\n1. No tires las baterías y pilas a la basura común, ya que contienen sustancias tóxicas.\n2. Busca puntos de recogida o centros de reciclaje especializados en baterías y pilas en tu área.\n3. Almacena las baterías y pilas usadas en un lugar seguro y seco hasta que puedas llevarlas a un centro de reciclaje.\n4. Consulta las normas locales de reciclaje para asegurarte de que estás reciclando correctamente."
+
+    #aceite usado
+def used_oil():
+    return "Para reciclar aceite usado, sigue estos pasos:\n1. No tires el aceite usado por el desagüe o en la basura común, ya que puede contaminar el agua y el suelo.\n2. Deja que el aceite se enfríe después de usarlo.\n3. Vierte el aceite usado en un recipiente limpio y con tapa, como una botella de plástico o un frasco de vidrio.\n4. Busca puntos de recogida o centros de reciclaje especializados en aceite usado en tu área.\n5. Lleva el recipiente con el aceite usado al centro de reciclaje para su correcta disposición."
+
+    #neumaticos
+def tires():
+    return "Para reciclar neumáticos, sigue estos pasos:\n1. No tires los neumáticos a la basura común, ya que pueden ser perjudiciales para el medio ambiente.\n2. Busca talleres de reparación de neumáticos, concesionarios de automóviles o centros de reciclaje especializados en neumáticos en tu área.\n3. Algunos lugares ofrecen programas de recogida de neumáticos usados, así que infórmate sobre estas opciones.\n4. Asegúrate de que los neumáticos estén limpios y secos antes de llevarlos al centro de reciclaje.\n5. Consulta las normas locales de reciclaje para asegurarte de que estás reciclando correctamente."
+
+@client.event
+async def on_message(message):
+  elif message.content.startswith('$options'):
+        await message.channel.send(options())
+    elif message.content.startswith('$papelycarton'):
+        await message.channel.send(paper_carton())
+    elif message.content.startswith('$plastico'):
+        await message.channel.send(plastic())
+    elif message.content.startswith('$vidrio'):
+        await message.channel.send(glass())
+    elif message.content.startswith('$metales'):
+        await message.channel.send(metals())
+    elif message.content.startswith('$residuosorganicos'):
+        await message.channel.send(organic_waste())
+    elif message.content.startswith('$electronicos'):
+        await message.channel.send(electronics())
+    elif message.content.startswith('$ropaytextiles'):
+        await message.channel.send(clothes_textiles())
+    elif message.content.startswith('$bateriasypilas'):
+        await message.channel.send(batteries())
+    elif message.content.startswith('$aceiteusado'):
+        await message.channel.send(used_oil())
+    elif message.content.startswith('$neumaticos'):
+        await message.channel.send(tires())
+
+client.run("token goes here")
